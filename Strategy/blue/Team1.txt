@@ -13,6 +13,7 @@ on strategyB
  defend1(b3)
  --defend2(b4)
 end
+
 on run(who)
   if  i > 120 then
     velocity(who,75,75) 
@@ -21,12 +22,10 @@ on run(who)
     velocity(b3,75,0) 
   end if 
   if i  > 160 then 
-    velocity(b3,0,0) 
-    
+    velocity(b3,0,0)
   end if 
   if i  > 850 then 
-    velocity(b3,125,125) 
-    
+    velocity(b3,125,125)
   end if 
 end
 
@@ -46,12 +45,11 @@ on Goalie1(whichBot)
   end if 
   if A.y < Ty -.9 and A.y < 43 then
     vr = 100
-    vl =100
-    
+    vl = 100
   end if 
   if A.y < 27 then
     vr = 100
-    vl =100
+    vl = 100
   end if 
   if A.y >43 then
     vr = -100
@@ -86,7 +84,7 @@ on defend1(whichBot)
   end if 
   if A.y < Ty -.9 and A.y < 70 then
     vr = 100
-    vl =100
+    vl = 100
     
   end if 
   if A.y < 40 then
@@ -100,7 +98,7 @@ on defend1(whichBot)
   --------correct rot--------------------
   tR = whichBot.rot.z 
   if  tR < .001 then tR = tR + 360
-  if tR >360.001 then tR = tR - 360
+  if tR > 360.001 then tR = tR - 360
   if tR > 270.5 then 
     vl = vl + abs(tR - 270)
   else if tR < 269.5 then 
@@ -126,8 +124,7 @@ on defend2(whichBot)
   end if 
   if A.y < Ty -.9 and A.y < 35 then
     vr = 100
-    vl =100
-    
+    vl = 100
   end if 
   if A.y < 0 then
     vr = 100
@@ -140,7 +137,7 @@ on defend2(whichBot)
   --------correct rot--------------------
   tR = whichBot.rot.z 
   if  tR < .001 then tR = tR + 360
-  if tR >360.001 then tR = tR - 360
+  if tR > 360.001 then tR = tR - 360
   if tR > 270.5 then 
     vl = vl + abs(tR - 270)
   else if tR < 269.5 then 
@@ -155,7 +152,7 @@ on attack2(whichBot)
   A = whichBot.pos
   R = whichBot.rot .z
   if  R < 0 then R = R + 360
-  if R >360 then R = R - 360
+  if R > 360 then R = R - 360
   vr = 0
   vl=20
   
@@ -163,8 +160,8 @@ on attack2(whichBot)
     ---------------------------------attackpoint
     if t.y > (ftop - 2.5) then t.y = (ftop - 2.5)
     if t.y < (fbot + 2.5) then t.y = (fbot + 2.5)
-    if t.x >(fRightX - 3) then t.x = (fRightX - 3)
-    if t.x <(fLeftX +3) then t.x = (fLeftX +3)
+    if t.x > (fRightX - 3) then t.x = (fRightX - 3)
+    if t.x < (fLeftX +3) then t.x = (fLeftX +3)
     dX = (A.x) -T.x
     dY = A.y - T.y 
     -----------------------
@@ -302,7 +299,7 @@ on supp(whichBot)
   A = whichBot.pos
   R = whichBot.rot .z
   if  R < 0 then R = R + 360
-  if R >360 then R = R - 360
+  if R > 360 then R = R - 360
   vr = 0
   vl=20
   
@@ -310,8 +307,8 @@ on supp(whichBot)
     ---------------------------------attackpoint
     if t.y > (ftop - 2.5) then t.y = (ftop - 2.5)
     if t.y < (fbot + 2.5) then t.y = (fbot + 2.5)
-    if t.x >(fRightX - 3) then t.x = (fRightX - 3)
-    if t.x <(fLeftX +3) then t.x = (fLeftX +3)
+    if t.x > (fRightX - 3) then t.x = (fRightX - 3)
+    if t.x < (fLeftX +3) then t.x = (fLeftX +3)
     dX = (A.x) -T.x
     dY = A.y - T.y 
     -----------------------
@@ -568,6 +565,6 @@ on nearBound2(whichBot,vl,vr)
       vl = vl / 2
     end if 
   end if 
-  velocity(whichBot , vl,vr)
+  velocity(whichBot,vl,vr)
 end
 -----------------------------
