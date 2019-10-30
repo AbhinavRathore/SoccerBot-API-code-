@@ -20,6 +20,7 @@ BOOL APIENTRY DllMain( HANDLE hModule,
 		case DLL_THREAD_ATTACH:
 		case DLL_THREAD_DETACH:
 		case DLL_PROCESS_DETACH:
+		default:
 			break;
     }
     return TRUE;
@@ -37,14 +38,14 @@ MyStrategy::BeliefState state;
 
 extern "C" STRATEGY_API void Create ( Environment *env )
 {
+	if ( Comm::getInstance()->envi != NULL ) delete Comm::getInstance()->envi;
 	Comm::getInstance()->envi=env;
 }
 
 extern "C" STRATEGY_API void Destroy ( Environment *env )
 {
 	// free any user data created in Create ( Environment * )
-
-	// eg. if ( env->userData != NULL ) delete ( MyVariables * ) env->userData;
+	if ( env->userData != NULL ) delete ( MyVariables * ) env->userData;
 }
 
 
