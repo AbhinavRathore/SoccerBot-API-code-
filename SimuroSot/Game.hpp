@@ -103,11 +103,10 @@ namespace MyStrategy
 		static Vector2D<int> lastsetting(-1, -1);
 		return false;
 		//after each second)
+		
 		if(!(state->currFrameNum % 60))
 		{
-			if(abs(lastsetting.x - state->ballPos.x) < 3 && abs(lastsetting.y - state->ballPos.y) < 3)
-				return true;
-			lastsetting = state->ballPos;
+			(abs(lastsetting.x - state->ballPos.x) < 3 && abs(lastsetting.y - state->ballPos.y) < 3)?(return true):(lastsetting = state->ballPos);
 		}
 
 		return false;
